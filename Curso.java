@@ -1,14 +1,16 @@
 package peoo5;
 
 import java.util.ArrayList;
-/**
- *
- * @author marcos-sombra
- */
+
 public class Curso {
     //lista de atributos
     private ArrayList<Cadeira> cadeiras;
     private ArrayList<Aluno> alunos;
+    private String nome;
+    //construtor
+    public Curso(String curso){
+        this.nome = curso;
+    }
     //getters
     public ArrayList<Cadeira> getCadeiras() {
         return this.cadeiras;
@@ -17,6 +19,10 @@ public class Curso {
     public ArrayList<Aluno> getAlunos() {
         return this.alunos;
     }
+    
+    public String getNome() {
+        return nome;
+    }
     //setters
     public void setCadeiras(ArrayList<Cadeira> cadeiras) {
         this.cadeiras = cadeiras;
@@ -24,6 +30,10 @@ public class Curso {
 
     public void setAlunos(ArrayList<Aluno> alunos) {
         this.alunos = alunos;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
     
     //métodos
