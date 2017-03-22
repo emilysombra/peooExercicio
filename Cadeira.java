@@ -10,6 +10,7 @@ public class Cadeira {
     //contrutor
     public Cadeira(String cadeira){
         this.nome = cadeira;
+        this.alunos = new ArrayList<>();
     }
     //getters
     public ArrayList<Aluno> getAlunos() {
@@ -17,7 +18,7 @@ public class Cadeira {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public String getProfessor() {
