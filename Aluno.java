@@ -10,25 +10,15 @@ public class Aluno {
     private Curso curso;
     private ArrayList<Pair<Cadeira, String>> cadeiras;
     private String situacaoCurso;
-    //construtores
-    public Aluno(long m) {
-        this.matricula = m;
-        this.semestre = 1;
-        this.situacaoCurso = "Graduando";
-    }
-    public Aluno(long m, String nome) {
-        this.matricula = m;
-        this.semestre = 1;
-        this.nome = nome;
-        this.situacaoCurso = "Graduando";
-    }
+    //construtor
     public Aluno(long m, String nome, Curso c) {
         this.matricula = m;
         this.semestre = 1;
         this.nome = nome;
         this.situacaoCurso = "Graduando";
         this.curso = c;
-        //getCurso().getAlunos().add(this);
+        this.cadeiras = new ArrayList<>();
+        this.curso.getAlunos().add(this);
     }
     //getters    
     public long getMatricula(){
@@ -68,7 +58,10 @@ public class Aluno {
     }
 
     public void setCurso(Curso curso) {
+        if(!(getCurso().equals(curso)))
+            this.getCurso().getAlunos().remove(this);
         this.curso = curso;
+        this.curso.getAlunos().add(this);
     }
 
     public void setCadeiras(ArrayList<Pair<Cadeira, String>> cadeiras) {
@@ -124,6 +117,5 @@ public class Aluno {
                 return cadeira.getSecond();
         return null;
     }
-    
-    
+      
 }
