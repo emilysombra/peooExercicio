@@ -10,6 +10,8 @@ public class Curso {
     //construtor
     public Curso(String curso){
         this.nome = curso;
+        this.alunos = new ArrayList<>();
+        this.cadeiras = new ArrayList<>();
     }
     //getters
     public ArrayList<Cadeira> getCadeiras() {
@@ -38,7 +40,9 @@ public class Curso {
     
     //métodos
     public void cadastrarAluno(Aluno a){
-        getAlunos().add(a);
+        if(!(a.getCurso().equals(this)))
+            a.getCurso().getAlunos().remove(a);
+        a.setCurso(this);
     }
     
     public void cadastrarCadeira(Cadeira c){
